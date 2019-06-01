@@ -145,9 +145,7 @@ server <- function(input, output) {
   })
   
   output$downloadData <- downloadHandler(
-    filename = function() {
-      paste("test_polling_places.csv", sep = "")
-    },
+    filename = "test_polling_places.csv",
     content = function(file) {
       write.csv(data.to.export(), file, row.names = FALSE)
     }
@@ -161,7 +159,6 @@ server <- function(input, output) {
       write.csv(your.example(), file, row.names = FALSE)
     }
   )
-  
 }
 
 shinyApp(ui = ui, server = server)
