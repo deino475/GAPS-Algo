@@ -144,6 +144,10 @@ gaps.dist <- function(loc.one, loc.two, metric = "mi", weighted = FALSE)
   long1 <- loc.one$X * pi / 180.0
   long2 <- loc.two$X * pi / 180.0
   d <- acos(sin(lat1)*sin(lat2) + cos(lat1)*cos(lat2) * cos(long2-long1))
+  if (is.nan(d))
+  {
+    return(0)
+  }
   if (metric == "mi")
   {
     dist <- d * 3958.8
